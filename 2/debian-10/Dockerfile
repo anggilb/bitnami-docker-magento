@@ -22,6 +22,8 @@ RUN apt-get update && apt-get upgrade -y && \
 RUN chmod g+rwX /opt/bitnami
 RUN sed -i -e '/pam_loginuid.so/ s/^#*/#/' /etc/pam.d/cron
 
+COPY auth.json /opt/bitnami/magento/auth.json
+
 COPY rootfs /
 RUN /opt/bitnami/scripts/apache/postunpack.sh
 RUN /opt/bitnami/scripts/php/postunpack.sh
