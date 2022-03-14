@@ -231,6 +231,15 @@ magento_initialize() {
             info "Running Magento install script"
             magento_execute setup:install "${magento_install_cli_flags[@]}"
 
+            if is_boolean_yes "$MAGENTO_INSTALL_SAMPLEDATA"; then
+                info "Install Sample Data"
+                composer require "magento/composer": "1.7.0 as 1.6.0" --working-dir="$MAGENTO_BASE_DIR"
+                composer config allow-plugins true -n --working-dir="$MAGENTO_BASE_DIR"
+                composer update --working-dir="$MAGENTO_BASE_DIR"
+                magento_execute sampledata:deploy
+                magento_execute setup:upgrade
+            fi
+
             # Define whether the site must be accessed via HTTP or HTTPS
             # If the site must be accessed via HTTPS, we will force the admin panel to be accessed via HTTPS too
             local use_secure="0"

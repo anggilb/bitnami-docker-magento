@@ -72,6 +72,7 @@ magento_env_vars=(
     MARIADB_PORT_NUMBER
     ELASTICSEARCH_HOST
     ELASTICSEARCH_PORT_NUMBER
+    MAGENTO_INSTALL_SAMPLEDATA
 )
 for env_var in "${magento_env_vars[@]}"; do
     file_env_var="${env_var}_FILE"
@@ -159,5 +160,8 @@ export MAGENTO_ELASTICSEARCH_PASSWORD="${MAGENTO_ELASTICSEARCH_PASSWORD:-}" # on
 # PHP configuration
 export PHP_DEFAULT_MAX_EXECUTION_TIME="18000" # only used at build time
 export PHP_DEFAULT_MEMORY_LIMIT="1G" # only used at build time
+
+# Magento install Sample Data
+export MAGENTO_INSTALL_SAMPLEDATA="${MAGENTO_INSTALL_SAMPLEDATA:-no}" # only used during the first initialization
 
 # Custom environment variables may be defined below
