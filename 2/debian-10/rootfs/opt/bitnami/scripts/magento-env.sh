@@ -115,6 +115,7 @@ export MAGENTO_ADMIN_URL_PREFIX="${MAGENTO_ADMIN_URL_PREFIX:-admin}" # only used
 export MAGENTO_DEPLOY_STATIC_CONTENT="${MAGENTO_DEPLOY_STATIC_CONTENT:-no}" # only used during the first initialization
 export MAGENTO_SKIP_REINDEX="${MAGENTO_SKIP_REINDEX:-no}" # only used during the first initialization
 export MAGENTO_SKIP_BOOTSTRAP="${MAGENTO_SKIP_BOOTSTRAP:-no}" # only used during the first initialization
+export MAGENTO_INSTALL_SAMPLEDATA="${MAGENTO_INSTALL_SAMPLEDATA:-no}" # only used during the first initialization
 
 # Magento credentials
 export MAGENTO_USERNAME="${MAGENTO_USERNAME:-user}" # only used during the first initialization
@@ -160,8 +161,5 @@ export MAGENTO_ELASTICSEARCH_PASSWORD="${MAGENTO_ELASTICSEARCH_PASSWORD:-}" # on
 # PHP configuration
 export PHP_DEFAULT_MAX_EXECUTION_TIME="18000" # only used at build time
 export PHP_DEFAULT_MEMORY_LIMIT="1G" # only used at build time
-
-# Magento install Sample Data
-export MAGENTO_INSTALL_SAMPLEDATA="${MAGENTO_INSTALL_SAMPLEDATA:-no}" # only used during the first initialization
 
 # Custom environment variables may be defined below

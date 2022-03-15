@@ -232,7 +232,7 @@ magento_initialize() {
             magento_execute setup:install "${magento_install_cli_flags[@]}"
 
             if is_boolean_yes "$MAGENTO_INSTALL_SAMPLEDATA"; then
-                info "Install Sample Data"
+                info "Populating sample data"
                 composer require "magento/composer": "1.7.0 as 1.6.0" --working-dir="$MAGENTO_BASE_DIR"
                 composer config allow-plugins true -n --working-dir="$MAGENTO_BASE_DIR"
                 composer update --working-dir="$MAGENTO_BASE_DIR"
